@@ -1,0 +1,27 @@
+{
+  "configuration": {
+    "VW Dealer Campaign Detail.Id" : "A",
+    "VW Dealer Campaign Detail.Customer Name" : "B",
+	"VW Dealer Campaign Detail.Region Name" : "C",
+	"VW Dealer Campaign Detail.Parent Region Name" : "D",
+	"VW Dealer Campaign Detail.AF Brand VW PC" : "E",
+	"VW Dealer Campaign Detail.AF Brand Audi" : "F",
+	"VW Dealer Campaign Detail.AF Brand Seat" : "G",
+	"VW Dealer Campaign Detail.AF Brand Skoda" : "H",
+	"VW Dealer Campaign Detail.AF Brand LCV" : "I",
+	"VW Dealer Campaign Detail.Brand VW PC" : "J",
+	"VW Dealer Campaign Detail.Brand Audi" : "K",
+	"VW Dealer Campaign Detail.Brand Seat" : "L",
+	"VW Dealer Campaign Detail.Brand Skoda" : "M",
+	"VW Dealer Campaign Detail.Brand LCV" : "N",
+	"VW Dealer Campaign Detail.Dlvr Brand VW PC" : "O",
+	"VW Dealer Campaign Detail.Dlvr Brand Audi" : "P",
+	"VW Dealer Campaign Detail.Dlvr Brand Seat" : "Q",
+	"VW Dealer Campaign Detail.Dlvr Brand Skoda" : "R",
+	"VW Dealer Campaign Detail.Dlvr Brand LCV" : "S",
+	"DataRow":"2",
+  },
+  "useVwTemplate": {
+	"value" : "true",
+  } 
+}

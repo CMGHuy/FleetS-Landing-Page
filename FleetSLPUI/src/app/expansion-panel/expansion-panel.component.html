@@ -1,0 +1,11 @@
+<mat-expansion-panel id="{{idName}}" [expanded]="!disable" [disabled]="disable">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{groupName}}
+    </mat-panel-title>
+    <mat-panel-description>
+      {{groupDescription}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <ng-content></ng-content>
+</mat-expansion-panel>

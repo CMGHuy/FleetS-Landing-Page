@@ -1,0 +1,19 @@
+# Authors : ar.sur@reply.de
+version: '3'
+services:
+    # *************** Fleets Landing Page Service ************************
+    fleets-landing-page:
+        image: fleets-landing-page
+        build: .
+        network_mode: bridge
+        container_name: fleets-landing-page
+        expose:
+            - 8080
+        ports:
+            - 8080:8080
+        environment:
+            LOGGING_FILE: /persistent/logs/fleets-landing-page.log
+            SPRING_PROFILES_ACTIVE: kons
+        restart: unless-stopped
+        volumes:
+            - /etc/fleets-landing-page:/persistent

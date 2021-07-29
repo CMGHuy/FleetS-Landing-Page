@@ -1,0 +1,17 @@
+.mat-expansion-panel
+{
+  border: solid black;
+  border-width: 1px;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+.mat-expansion-panel:hover
+{
+  box-shadow: 0 -6px 10px 0 #AED6F1  , 0 6px 10px 0 #AED6F1 ;
+}
+.mat-expansion-panel-header-title
+{
+  font-size: 17px;
+  font-weight: 700;
+  color: #006384;
+}

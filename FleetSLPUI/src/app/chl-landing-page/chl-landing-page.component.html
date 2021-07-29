@@ -1,0 +1,105 @@
+<!--<div *ngIf="componentOn" style="background-color:#006384; width: 100%; height: 100%; overflow-x: hidden;">-->
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img id="VWLogo" alt="VW Logo" src = "../../assets/images/VW_Fleet_Logo.png"/>
+</div>
+
+<!--Content-->
+<div class="content" role="main">
+<!--  Company Name-->
+  <h4>{{companyTitel}}</h4>
+<!--  Import Type-->
+  <h2 *ngIf = "typeImport === 'CHL'; then thenBlock; else elseBlock"></h2>
+  <ng-template #thenBlock>
+    <h2>CHASSIS LOAD</h2>
+  </ng-template>
+  <ng-template #elseBlock>
+    <h2>CHASSIS LOAD - BACK OFFICE</h2>
+  </ng-template>
+<!--  Container-->
+  <div class="container">
+<!--    Form -->
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)" enctype="multipart/form-data" >
+<!--      Expansion Panels-->
+      <mat-accordion multi>
+<!--        Choose File Panel-->
+        <app-expansion-panel [idName]="'ChooseFile'" [groupName]=" 'Choose File' " [groupDescription]=" 'Only CSV, XLSX, XLS allowed' "
+                             [disable]="false" >
+          <div align="center">
+            <input type='file' class="custom-file-input custom-file-input-1" id="customFile" name="filename"
+                   (focusin)="onFocus('ChooseFile',$event)" (focusout)="removeHighlight('ChooseFile',$event)"
+                   (change)="verifyFile($event)"  style="display: none" required/>
+            <label for="customFile">
+              <span width="20" height="17" viewBox="0 0 20 17">
+                <mat-icon>cloud_upload</mat-icon>
+              </span>
+              <span>{{fileNameDisplay}}</span>
+            </label>
+          </div>
+        </app-expansion-panel>
+<!--        Manual Column Setting Panel-->
+        <app-expansion-panel [idName] = "'ManualColumn'" [groupName]=" 'Manual Column Setting' " [groupDescription]=" '(*): Mandatory column' "
+                             [disable]="tableDisable" (keydown.enter)="$event.preventDefault()" >
+<!--          Table-->
+          <table id = "table">
+<!--            First row-->
+            <tr>
+              <ng-container *ngFor="let i of headers">
+                <td *ngIf=" i === 'VIN'; then thenBlock; else elseBlock "></td>
+                <ng-template #thenBlock>
+                  <td>
+                    <input type="text" (keypress)="alphaOnly($event)" (focusout)="removeHighlight('ManualColumn',$event)"
+                           (focusin)="onFocus('ManualColumn',$event)" (keydown)="onKey($event)" (change) = "verifyColumn($event)"
+                           formControlName={{i}} required >
+                  </td>
+                </ng-template>
+                <ng-template #elseBlock>
+                  <td>
+                    <input type="text" (keypress)="alphaOnly($event)" (focusout)="removeHighlight('ManualColumn',$event)"
+                           (focusin)="onFocus('ManualColumn',$event)" (keydown)="onKey($event)" formControlName={{i}}>
+                  </td>
+                </ng-template>
+              </ng-container>
+            </tr>
+<!--            Second row-->
+            <tr style="text-align: center">
+              <ng-container *ngFor="let h of headers | replace:'_':' '">
+                <td *ngIf=" h === 'VIN'; then thenBlock; else elseBlock "></td>
+                <ng-template #thenBlock>
+                  <td> VIN (*) </td>
+                </ng-template>
+                <ng-template #elseBlock>
+                  <td> {{h}} </td>
+                </ng-template>
+              </ng-container>
+            </tr>
+          </table>
+        </app-expansion-panel>
+<!--        Data Row-->
+        <app-expansion-panel [idName]="'DataRow'" [groupName]=" 'Data Setting' " [groupDescription]=" '' "
+                             [disable]="false" (keydown.enter)="$event.preventDefault()">
+          <div align="center">
+            <span> Data starts from row
+              <input type="number" min = "2" max="200" placeholder="2" step='1' class="spinner"
+                     (keyup)="limitMaxValue(2,200,$event)" (focusin)="onFocus('DataRow',$event)"
+                     (focusout)="removeHighlight('DataRow',$event)" matInput formControlName="datarow" >
+            </span>
+          </div>
+        </app-expansion-panel>
+      </mat-accordion>
+<!--      Submit Button-->
+      <button type="submit" id="submitButton" class="submit-button" *ngIf = "submitButtonOn">
+          <span> Submit </span>
+      </button>
+      <button type="button" id="fakeSubmitButton" class="submit-button" disabled="disabled" *ngIf="fakeButtonOn">
+        Submit
+        <i class="fa fa-minus-circle"></i>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!--Uploading Loader-->
+<app-loader-upload-file [loaderEnable] = "loaderOn"></app-loader-upload-file>
+<!--</div>-->
+<!--<router-outlet></router-outlet>-->

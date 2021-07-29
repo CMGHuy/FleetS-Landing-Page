@@ -1,0 +1,10 @@
+{
+  "configuration": {
+    "VW ChassiLoad VIN.Vin Nr" : "G",
+	"VW ChassiLoad VIN.Cust Brand" : "B",
+	"VW ChassiLoad VIN.Cust Region" : "A",
+	"VW ChassiLoad VIN.Cust Country" : "K",
+	"VW ChassiLoad VIN.Cust Model" : "C",
+	"VW ChassiLoad VIN.Cust Reg Dt" : "F",
+  }
+}

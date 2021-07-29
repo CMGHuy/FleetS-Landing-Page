@@ -1,0 +1,40 @@
+Environment:
+	DEV: 
+	ssh opc@10.64.120.147
+	http://localhost:8080/v1/lp/auth?token=1-31543093   IFU
+	http://localhost:8080/v1/lp/auth?token=1-31537338 CHL
+	http://localhost:8080/v1/lp/auth?token=1-31381633 CHB
+	http://10.64.120.147:8080/v1/lp/auth?token=1-62711547
+	 
+	KONS: 
+	ssh opc@10.64.120.156
+	http://10.64.120.156:8080/v1/lp/auth?token=1-29386870 IFU
+	http://10.64.120.156:8080/v1/lp/auth?token=1-29135011 CHL
+	http://localhost:8080/v1/lp/auth?token=1-28116951
+
+If libraries are missing, use these commands
+
+	npm install --save-dev @angular-devkit/build-angular
+	npm install --save rxjs-compat
+	npm install typescript
+
+Apply change on the UI:
+	
+	cd C:\Users\h.cao\IdeaProjects\fleets-landing-page\FleetSLPUI && ng build && cd C:\Users\h.cao\IdeaProjects\fleets-landing-page\FleetSLPService && mvn clean install
+	
+	cd C:\Users\h.vo\IdeaProjects\fleets-landing-page\FleetSLPUI && ng build && cd C:\Users\h.vo\IdeaProjects\fleets-landing-page\FleetSLPService && mvn clean install
+	
+Deploy on DEV/KONS
+	cd /mnt/c/Users/h.cao/git/fleets-landing-page/FleetSLPService/target/
+
+	KONS:
+	sudo scp FleetSLPService-1.0.0-SNAPSHOT.jar opc@10.64.120.156:./
+	
+	cd /home/opc
+	Cp
+	
+	cd etc/fleet-landing-page  
+	docker-compose down
+	docker-compose up --build
+
+C:\Users\h.cao\.PyCharmCE2019.3\config\c.kdbx

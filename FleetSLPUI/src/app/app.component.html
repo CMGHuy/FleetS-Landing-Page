@@ -1,0 +1,17 @@
+<!-- IFU landing page-->
+<div *ngIf="selectedPage == 'IFU' ">
+  <ifu-landing-page-root [(component)] = "selectedPage"  [typeImport] = "typeImport" [token] = "token" [companyTitel] = "companyTitel"></ifu-landing-page-root>
+</div>
+
+<!-- CHL|CHB landing page-->
+<div *ngIf="selectedPage == 'CHL' || selectedPage == 'CHB' ">
+  <chl-landing-page-root [(component)] = "selectedPage"  [typeImport] = "typeImport" [token] = "token" [companyTitel] = "companyTitel"></chl-landing-page-root>
+</div>
+
+<!--Block Page-->
+<app-block-page *ngIf="selectedPage == 'blockedPage' "></app-block-page>
+
+<!--Success Page-->
+<div *ngIf="selectedPage == 'successPage' ">
+  <app-success-page></app-success-page>
+</div>
